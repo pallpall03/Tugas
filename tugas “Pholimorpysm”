@@ -1,0 +1,84 @@
+// Kelas Induk  
+abstract class Film {  
+    protected String judul;  
+    protected String sutradara;  
+    protected int tahunRilis;  
+  
+    public Film(String judul, String sutradara, int tahunRilis) {  
+        this.judul = judul;  
+        this.sutradara = sutradara;  
+        this.tahunRilis = tahunRilis;  
+    }  
+  
+    abstract void deskripsi();  
+}  
+  
+// Kelas Turunan: Film Aksi  
+class FilmAksi extends Film {  
+    private int jumlahLedakan;  
+  
+    public FilmAksi(String judul, String sutradara, int tahunRilis, int jumlahLedakan) {  
+        super(judul, sutradara, tahunRilis);  
+        this.jumlahLedakan = jumlahLedakan;  
+    }  
+  
+    @Override  
+    void deskripsi() {  
+        System.out.println("Film Aksi: " + judul + " (Sutradara: " + sutradara + ", Tahun: " + tahunRilis + ")");  
+        System.out.println("Jumlah Ledakan: " + jumlahLedakan);  
+    }  
+}  
+  
+// Kelas Turunan: Film Horor  
+class FilmHoror extends Film {  
+    private boolean basedOnTrueStory;  
+  
+    public FilmHoror(String judul, String sutradara, int tahunRilis, boolean basedOnTrueStory) {  
+        super(judul, sutradara, tahunRilis);  
+        this.basedOnTrueStory = basedOnTrueStory;  
+    }  
+  
+    @Override  
+    void deskripsi() {  
+        System.out.println("Film Horor: " + judul + " (Sutradara: " + sutradara + ", Tahun: " + tahunRilis + ")");  
+        System.out.println("Berdasarkan Kisah Nyata: " + (basedOnTrueStory ? "Ya" : "Tidak"));  
+    }  
+}  
+  
+// Kelas Turunan: Film Komedi  
+class FilmKomedi extends Film {  
+    private int jumlahLelucon;  
+  
+    public FilmKomedi(String judul, String sutradara, int tahunRilis, int jumlahLelucon) {  
+        super(judul, sutradara, tahunRilis);  
+        this.jumlahLelucon = jumlahLelucon;  
+    }  
+  
+    @Override  
+    void deskripsi() {  
+        System.out.println("Film Komedi: " + judul + " (Sutradara: " + sutradara + ", Tahun: " + tahunRilis + ")");  
+        System.out.println("Jumlah Lelucon: " + jumlahLelucon);  
+    }  
+}  
+  
+// Kelas Main untuk menjalankan program  
+public class tugastugas  {  
+    public static void main(String[] args) {  
+        // Objek Film Aksi  
+        FilmAksi aksi = new FilmAksi("Mad Max: Fury Road", "George Miller", 2015, 20);  
+        aksi.deskripsi();  
+  
+        System.out.println();  
+  
+        // Objek Film Horor  
+        FilmHoror horor = new FilmHoror("The Conjuring", "James Wan", 2013, true);  
+        horor.deskripsi();  
+  
+        System.out.println();  
+  
+        // Objek Film Komedi  
+        FilmKomedi komedi = new FilmKomedi("Dumb and Dumber", "Peter Farrelly", 1994, 50);  
+        komedi.deskripsi();  
+    }  
+}  
+   
